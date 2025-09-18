@@ -7,6 +7,13 @@ import Home from './pages/Home';
 import Cabinet from './pages/Cabinet';
 import GestionPatrimoine from './pages/GestionPatrimoine';
 import EpargneRetraite from './pages/EpargneRetraite';
+import EpargneSalariale from './pages/EpargneSalariale';
+import Prevoyance from './pages/Prevoyance';
+import PeePereco from './pages/PeePereco';
+import Participation from './pages/Participation';
+import Interessement from './pages/Interessement';
+import Actualite from './pages/Actualite';
+import Contact from './pages/Contact';
 import Plus from './pages/Plus';
 
 function App() {
@@ -19,6 +26,13 @@ function App() {
           <Route path="/cabinet" element={<Cabinet />} />
           <Route path="/gestion-patrimoine" element={<GestionPatrimoine />} />
           <Route path="/epargne-retraite" element={<EpargneRetraite />} />
+          <Route path="/epargne-salariale" element={<EpargneSalariale />} />
+          <Route path="/prevoyance" element={<Prevoyance />} />
+          <Route path="/pee-pereco" element={<PeePereco />} />
+          <Route path="/participation" element={<Participation />} />
+          <Route path="/interessement" element={<Interessement />} />
+          <Route path="/actualite" element={<Actualite />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/plus" element={<Plus />} />
         </Routes>
       </main>

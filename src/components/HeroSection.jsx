@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import heroImage from '../assets/images/7f9e82_ac487d7fabbf4c51b844db4d668e56b5.jpg';
 
@@ -39,6 +39,15 @@ const HeroSection = () => {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
+
+  // Auto-advance slides every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   return (
     <section className="relative h-screen bg-cover bg-center bg-no-repeat" 

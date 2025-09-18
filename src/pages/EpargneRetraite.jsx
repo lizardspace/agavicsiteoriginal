@@ -1,84 +1,188 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const EpargneRetraite = () => {
-  const solutions = [
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const perSolutions = [
     {
-      title: "PER Individuel",
-      description: "Plan d'Épargne Retraite adapté à votre situation personnelle",
-      avantages: ["Déduction fiscale", "Sortie en rente ou capital", "Transmission possible"]
+      title: "Le PER individuel (PERIN)",
+      description: "Accessible à tous, versements modulables, possibilité de sortie en rente ou capital.",
+      icon: "👤"
     },
     {
-      title: "PER Collectif",
-      description: "Solution d'épargne retraite d'entreprise",
-      avantages: ["Abondement employeur", "Versements volontaires", "Portabilité"]
+      title: "Le PER d'entreprise collectif (PERECO)",
+      description: "Pour les salariés, avec avantage fiscal pour l'entreprise.",
+      icon: "🏢"
     },
     {
-      title: "Assurance Vie",
-      description: "Complément retraite flexible et sécurisé",
-      avantages: ["Disponibilité", "Transmission optimisée", "Fiscalité attractive"]
+      title: "Le PER d'entreprise obligatoire (PEROB)",
+      description: "Dispositif géré par l'entreprise, ancien Article 83.",
+      icon: "📋"
     }
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-blue-900 mb-6">L'Épargne Retraite</h1>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+              Épargne Retraite
+            </h1>
+            <p className="text-xl text-gray-700 mb-8 italic">
+              « Faire de votre retraite la plus riche période de votre vie »
+            </p>
 
-        <div className="mb-8">
-          <p className="text-lg text-gray-700 mb-4">
-            Préparez sereinement votre retraite avec nos solutions d'épargne adaptées
-            à votre profil et vos objectifs.
-          </p>
-          <p className="text-gray-700 mb-6">
-            Nous vous accompagnons dans le choix et la gestion de vos produits d'épargne retraite
-            pour optimiser vos revenus futurs et votre fiscalité.
-          </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
+                onClick={() => scrollToSection('etude-strategie')}
+              >
+                Étude "Stratégie Retraite"
+              </Button>
+              <Button
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
+                onClick={() => scrollToSection('services-sur-mesure')}
+              >
+                Services sur mesure
+              </Button>
+              <Button
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
+                onClick={() => scrollToSection('solutions-financieres')}
+              >
+                Solutions financières & fiscales
+              </Button>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          {solutions.map((solution, index) => (
-            <Card key={index} className="h-full">
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Étude Stratégie Retraite */}
+          <section id="etude-strategie">
+            <Card>
               <CardHeader>
-                <CardTitle className="text-blue-900">{solution.title}</CardTitle>
+                <CardTitle className="text-blue-900 text-2xl">
+                  AGAVIC réalise votre étude personnalisée pour vivre pleinement votre retraite !
+                </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 mb-4">{solution.description}</p>
-                <h4 className="font-semibold text-blue-900 mb-2">Avantages :</h4>
-                <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
-                  {solution.avantages.map((avantage, idx) => (
-                    <li key={idx}>{avantage}</li>
-                  ))}
-                </ul>
+              <CardContent className="space-y-4">
+                <p className="text-gray-700">
+                  L'objectif est de vous aider à conserver votre niveau de vie lorsque vous serez à la retraite. L'étude passe par plusieurs étapes :
+                </p>
+
+                <div className="space-y-4 pl-4">
+                  <div>
+                    <span className="font-bold text-blue-900">Prise de connaissance :</span>
+                    <span className="text-gray-700"> votre situation personnelle (état civil, revenus, charges, patrimoine, etc.), vos objectifs futurs.</span>
+                  </div>
+                  <div>
+                    <span className="font-bold text-blue-900">Analyse :</span>
+                    <span className="text-gray-700"> grâce à nos outils, notre expérience, nous examinons votre dossier pour voir les pistes d'amélioration.</span>
+                  </div>
+                  <div>
+                    <span className="font-bold text-blue-900">Restitution :</span>
+                    <span className="text-gray-700"> entretien avec vous pour présenter la situation, les recommandations, les chemins à suivre et les outils à mettre en place.</span>
+                  </div>
+                </div>
+
+                <Button
+                  variant="outline"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 mt-6"
+                  onClick={() => navigate('/contact')}
+                >
+                  Nous contacter
+                </Button>
               </CardContent>
             </Card>
-          ))}
-        </div>
+          </section>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold text-blue-900 mb-4">
-              Pourquoi épargner pour la retraite ?
-            </h2>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Maintenir votre niveau de vie</li>
-              <li>Compenser la baisse des pensions</li>
-              <li>Bénéficier d'avantages fiscaux</li>
-              <li>Transmettre à vos proches</li>
-            </ul>
-          </div>
+          {/* Services sur mesure */}
+          <section id="services-sur-mesure">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-blue-900 text-2xl">
+                  Des services sur mesure adaptés à votre situation
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-4 pl-4">
+                  <div>
+                    <span className="font-bold text-blue-900">Bilan retraite :</span>
+                    <span className="text-gray-700"> reconstitution de carrière, audit de votre situation actuelle, détection des anomalies.</span>
+                  </div>
+                  <div>
+                    <span className="font-bold text-blue-900">Optimisation des retraites obligatoire et complémentaire :</span>
+                    <span className="text-gray-700"> choix optimal pour maximiser vos droits (rachats de trimestres, cumul, taux plein...).</span>
+                  </div>
+                  <div>
+                    <span className="font-bold text-blue-900">Liquidation des droits :</span>
+                    <span className="text-gray-700"> accompagnement pour les démarches auprès des caisses de retraite.</span>
+                  </div>
+                </div>
 
-          <div className="bg-green-50 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold text-blue-900 mb-4">
-              Notre Accompagnement
-            </h2>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Bilan retraite personnalisé</li>
-              <li>Simulation de revenus futurs</li>
-              <li>Optimisation fiscale</li>
-              <li>Suivi et ajustements réguliers</li>
-            </ul>
-          </div>
+                <Button
+                  variant="outline"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 mt-6"
+                  onClick={() => navigate('/contact')}
+                >
+                  Nous contacter
+                </Button>
+              </CardContent>
+            </Card>
+          </section>
+
+          {/* Solutions financières et fiscales */}
+          <section id="solutions-financieres">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-blue-900 text-2xl">
+                  Proposition de solutions financières & fiscales
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <p className="text-gray-700">
+                  Grâce aux dispositifs récents (comme la loi PACTE), il existe des moyens d'épargner pour la retraite tout en bénéficiant d'avantages fiscaux.
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  {perSolutions.map((solution, index) => (
+                    <div key={index} className="bg-blue-50 p-4 rounded-lg">
+                      <div className="text-2xl mb-2">{solution.icon}</div>
+                      <h4 className="font-bold text-blue-900 mb-2">{solution.title}</h4>
+                      <p className="text-gray-700 text-sm">{solution.description}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                  <p className="text-gray-700">
+                    <span className="font-semibold">💡 Bon à savoir :</span> Vous pouvez aussi transférer d'anciens contrats (PERP, Madelin, assurances vie > 8 ans) pour profiter d'un encadrement fiscal plus favorable.
+                  </p>
+                </div>
+
+                <Button
+                  variant="outline"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 mt-6"
+                  onClick={() => navigate('/contact')}
+                >
+                  Nous contacter
+                </Button>
+              </CardContent>
+            </Card>
+          </section>
         </div>
       </div>
     </div>

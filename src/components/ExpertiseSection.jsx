@@ -1,31 +1,38 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const ExpertiseSection = () => {
+  const navigate = useNavigate();
+
   const expertiseAreas = [
     {
       number: "01.",
       title: "Gestion de patrimoine",
       description: "Après analyse de votre situation, nous conseillons pour atteindre les objectifs souhaités. À l'issue, nous pouvons, accompagner dans la durée pour mettre en œuvre les stratégies adaptées",
-      buttonColor: "bg-green-500 hover:bg-green-600"
+      buttonColor: "bg-green-500 hover:bg-green-600",
+      route: "/gestion-patrimoine"
     },
     {
       number: "02.",
       title: "Epargne retraite",
       description: "Organisez votre patrimoine et vos revenus avec AGAVIC afin de conserver votre niveau de vie à la retraite",
-      buttonColor: "bg-pink-500 hover:bg-pink-600"
+      buttonColor: "bg-pink-500 hover:bg-pink-600",
+      route: "/epargne-retraite"
     },
     {
       number: "03.",
       title: "Epargne salariale",
       description: "Chef d'entreprise ou TNS : AGAVIC vous accompagne dans la mise en place d'accords d'entreprise (Intéressement, Participation) et des dispositifs d'épargne PEE/PERECO",
-      buttonColor: "bg-green-500 hover:bg-green-600"
+      buttonColor: "bg-green-500 hover:bg-green-600",
+      route: "/epargne-salariale"
     },
     {
       number: "04.",
       title: "Prévoyance et Complémentaire Santé",
       description: "AGAVIC vous trouve le meilleur rapport cotisations/remboursements, pour vous chef d'entreprise, pour votre personnel et les seniors.",
-      buttonColor: "bg-blue-500 hover:bg-blue-600"
+      buttonColor: "bg-blue-500 hover:bg-blue-600",
+      route: "/prevoyance"
     }
   ];
 
@@ -65,8 +72,9 @@ const ExpertiseSection = () => {
               <div className="w-full h-px bg-gray-300 mb-6"></div>
               
               {/* Button */}
-              <Button 
+              <Button
                 className={`${area.buttonColor} text-white px-6 py-2 rounded-full font-medium transition-colors duration-300`}
+                onClick={() => navigate(area.route)}
               >
                 En savoir plus
               </Button>

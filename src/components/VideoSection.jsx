@@ -10,13 +10,15 @@ import video6 from '../assets/images/7f9e82_895a6b8f9d5946158df404ce5a7ebcfbf002
 
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState(0);
-  
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const videos = [
     {
       id: 0,
       title: "Préparer sa retraite",
       duration: "01:04",
       thumbnail: video1,
+      youtubeId: "dQw4w9WgXcQ", // Example YouTube ID - replace with actual
       description: "Comment bien préparer sa retraite avec AGAVIC"
     },
     {
@@ -24,6 +26,7 @@ const VideoSection = () => {
       title: "Succession ? Donation ?",
       duration: "02:01",
       thumbnail: video2,
+      youtubeId: "dQw4w9WgXcQ", // Example YouTube ID - replace with actual
       description: "Les solutions de transmission de patrimoine"
     },
     {
@@ -31,6 +34,7 @@ const VideoSection = () => {
       title: "L'étude Patrimoniale ?",
       duration: "02:13",
       thumbnail: video3,
+      youtubeId: "dQw4w9WgXcQ", // Example YouTube ID - replace with actual
       description: "Comprendre l'étude patrimoniale"
     },
     {
@@ -38,6 +42,7 @@ const VideoSection = () => {
       title: "Comment réduire sa fiscalité ?",
       duration: "01:45",
       thumbnail: video4,
+      youtubeId: "dQw4w9WgXcQ", // Example YouTube ID - replace with actual
       description: "Optimisation fiscale avec AGAVIC"
     },
     {
@@ -45,6 +50,7 @@ const VideoSection = () => {
       title: "Comment se déroule une étude patrimoniale ?",
       duration: "02:30",
       thumbnail: video5,
+      youtubeId: "dQw4w9WgXcQ", // Example YouTube ID - replace with actual
       description: "Le processus d'étude patrimoniale"
     },
     {
@@ -52,9 +58,14 @@ const VideoSection = () => {
       title: "Mais à qui s'adresse la Gestion de Patrimoine",
       duration: "01:55",
       thumbnail: video6,
+      youtubeId: "dQw4w9WgXcQ", // Example YouTube ID - replace with actual
       description: "La gestion de patrimoine pour tous"
     }
   ];
+
+  const handlePlayVideo = () => {
+    setIsPlaying(true);
+  };
 
   return (
     <section className="py-20 bg-blue-900">
@@ -73,19 +84,34 @@ const VideoSection = () => {
           {/* Main Video Player */}
           <div className="bg-white rounded-lg overflow-hidden shadow-2xl mb-8">
             <div className="relative aspect-video bg-gray-900">
-              <img 
-                src={videos[selectedVideo].thumbnail} 
-                alt={videos[selectedVideo].title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                <button className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 transition-all duration-300 transform hover:scale-110">
-                  <Play size={48} className="text-blue-900 ml-1" />
-                </button>
-              </div>
-              <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded">
-                {videos[selectedVideo].duration}
-              </div>
+              {isPlaying ? (
+                <iframe
+                  src={`https://www.youtube.com/embed/${videos[selectedVideo].youtubeId}?autoplay=1`}
+                  title={videos[selectedVideo].title}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <>
+                  <img
+                    src={videos[selectedVideo].thumbnail}
+                    alt={videos[selectedVideo].title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                    <button
+                      onClick={handlePlayVideo}
+                      className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 transition-all duration-300 transform hover:scale-110"
+                    >
+                      <Play size={48} className="text-blue-900 ml-1" />
+                    </button>
+                  </div>
+                  <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded">
+                    {videos[selectedVideo].duration}
+                  </div>
+                </>
+              )}
             </div>
             
             {/* Video Controls */}
@@ -119,16 +145,19 @@ const VideoSection = () => {
           {/* Video Thumbnails Grid */}
           <div className="grid md:grid-cols-3 gap-6">
             {videos.map((video, index) => (
-              <div 
+              <div
                 key={video.id}
-                onClick={() => setSelectedVideo(index)}
+                onClick={() => {
+                  setSelectedVideo(index);
+                  setIsPlaying(false);
+                }}
                 className={`bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-xl transform hover:scale-105 ${
                   selectedVideo === index ? 'ring-4 ring-yellow-400' : ''
                 }`}
               >
                 <div className="relative aspect-video">
-                  <img 
-                    src={video.thumbnail} 
+                  <img
+                    src={video.thumbnail}
                     alt={video.title}
                     className="w-full h-full object-cover"
                   />
