@@ -68,22 +68,23 @@ const VideoSection = () => {
   };
 
   return (
-    <section className="py-20 bg-blue-900">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 backdrop-blur-sm"></div>
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent mb-4">
             Découvrez en quelques minutes AGAVIC
           </h2>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
             Assurances
           </h2>
         </div>
 
         <div className="max-w-6xl mx-auto">
           {/* Main Video Player */}
-          <div className="bg-white rounded-lg overflow-hidden shadow-2xl mb-8">
-            <div className="relative aspect-video bg-gray-900">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl mb-8 border border-white/20">
+            <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-black">
               {isPlaying ? (
                 <iframe
                   src={`https://www.youtube.com/embed/${videos[selectedVideo].youtubeId}?autoplay=1`}
@@ -102,9 +103,9 @@ const VideoSection = () => {
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <button
                       onClick={handlePlayVideo}
-                      className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 transition-all duration-300 transform hover:scale-110"
+                      className="bg-gradient-to-r from-white to-blue-50 bg-opacity-95 hover:bg-opacity-100 rounded-full p-6 transition-all duration-300 transform hover:scale-110 shadow-2xl border border-white/20 hover:shadow-white/20"
                     >
-                      <Play size={48} className="text-blue-900 ml-1" />
+                      <Play size={48} className="text-blue-900 ml-1 drop-shadow-sm" />
                     </button>
                   </div>
                   <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded">
@@ -115,8 +116,8 @@ const VideoSection = () => {
             </div>
             
             {/* Video Controls */}
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-blue-900 mb-2">
+            <div className="p-6 bg-gradient-to-r from-gray-50 to-white">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent mb-2">
                 {videos[selectedVideo].title}
               </h3>
               <p className="text-gray-600">
@@ -126,17 +127,17 @@ const VideoSection = () => {
           </div>
 
           {/* Search and Filter */}
-          <div className="bg-white rounded-lg p-6 mb-8">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 mb-8 shadow-lg border border-white/20">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   placeholder="Rechercher une vidéo..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all backdrop-blur-sm"
                 />
               </div>
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg">
+              <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg">
                 Toutes les catégories
               </Button>
             </div>
@@ -151,8 +152,8 @@ const VideoSection = () => {
                   setSelectedVideo(index);
                   setIsPlaying(false);
                 }}
-                className={`bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-xl transform hover:scale-105 ${
-                  selectedVideo === index ? 'ring-4 ring-yellow-400' : ''
+                className={`bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl transform hover:scale-105 border border-white/20 ${
+                  selectedVideo === index ? 'ring-4 ring-yellow-400 ring-opacity-60 shadow-yellow-400/20' : ''
                 }`}
               >
                 <div className="relative aspect-video">
@@ -161,15 +162,15 @@ const VideoSection = () => {
                     alt={video.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <Play size={32} className="text-white" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-all duration-300 backdrop-blur-sm">
+                    <Play size={32} className="text-white drop-shadow-lg" />
                   </div>
                   <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-sm px-2 py-1 rounded">
                     {video.duration}
                   </div>
                 </div>
-                <div className="p-4">
-                  <h4 className="font-bold text-blue-900 mb-2">
+                <div className="p-4 bg-gradient-to-r from-gray-50 to-white">
+                  <h4 className="font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent mb-2">
                     {video.title}
                   </h4>
                 </div>
@@ -179,7 +180,7 @@ const VideoSection = () => {
 
           {/* Next Button */}
           <div className="text-center mt-8">
-            <Button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium inline-flex items-center gap-2">
+            <Button className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-8 py-3 rounded-xl font-medium inline-flex items-center gap-2 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-emerald-500/25">
               Suivant
               <ChevronRight size={20} />
             </Button>

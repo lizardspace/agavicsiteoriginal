@@ -10,29 +10,33 @@ const ExpertiseSection = () => {
       number: "01.",
       title: "Gestion de patrimoine",
       description: "Après analyse de votre situation, nous conseillons pour atteindre les objectifs souhaités. À l'issue, nous pouvons, accompagner dans la durée pour mettre en œuvre les stratégies adaptées",
-      buttonColor: "bg-green-500 hover:bg-green-600",
-      route: "/gestion-patrimoine"
+      buttonColor: "bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700",
+      route: "/gestion-patrimoine",
+      icon: "💼"
     },
     {
       number: "02.",
       title: "Epargne retraite",
       description: "Organisez votre patrimoine et vos revenus avec AGAVIC afin de conserver votre niveau de vie à la retraite",
-      buttonColor: "bg-pink-500 hover:bg-pink-600",
-      route: "/epargne-retraite"
+      buttonColor: "bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700",
+      route: "/epargne-retraite",
+      icon: "🏦"
     },
     {
       number: "03.",
       title: "Epargne salariale",
       description: "Chef d'entreprise ou TNS : AGAVIC vous accompagne dans la mise en place d'accords d'entreprise (Intéressement, Participation) et des dispositifs d'épargne PEE/PERECO",
-      buttonColor: "bg-green-500 hover:bg-green-600",
-      route: "/epargne-salariale"
+      buttonColor: "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700",
+      route: "/epargne-salariale",
+      icon: "👥"
     },
     {
       number: "04.",
       title: "Prévoyance et Complémentaire Santé",
       description: "AGAVIC vous trouve le meilleur rapport cotisations/remboursements, pour vous chef d'entreprise, pour votre personnel et les seniors.",
-      buttonColor: "bg-blue-500 hover:bg-blue-600",
-      route: "/prevoyance"
+      buttonColor: "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700",
+      route: "/prevoyance",
+      icon: "🛡️"
     }
   ];
 
