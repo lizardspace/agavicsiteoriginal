@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import logoImage from '../assets/images/7f9e82_4ddb5c8e74f94d0980874c84ce25d937.png';
 import linkedinIcon from '../assets/images/6ea5b4a88f0b4f91945b40499aa0af00.png';
@@ -19,21 +20,21 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
+            <Link to="/" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
               Accueil
-            </a>
-            <a href="#" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
+            </Link>
+            <Link to="/cabinet" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
               Le cabinet
-            </a>
-            <a href="#" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
+            </Link>
+            <Link to="/gestion-patrimoine" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
               Gestion de Patrimoine
-            </a>
-            <a href="#" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
+            </Link>
+            <Link to="/epargne-retraite" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
               L'épargne retraite
-            </a>
-            <a href="#" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
+            </Link>
+            <Link to="/plus" className="text-blue-900 font-medium hover:text-blue-700 transition-colors">
               Plus
-            </a>
+            </Link>
           </nav>
 
           {/* Contact Info and LinkedIn */}
