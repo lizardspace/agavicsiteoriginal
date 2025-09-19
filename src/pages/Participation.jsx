@@ -6,27 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const Participation = () => {
   const navigate = useNavigate();
 
-  const avantages = [
-    {
-      title: "Pour l'entreprise",
-      items: [
-        "Exonération de charges sociales",
-        "Déduction fiscale des sommes versées",
-        "Motivation des équipes",
-        "Amélioration de la productivité"
-      ]
-    },
-    {
-      title: "Pour les salariés",
-      items: [
-        "Complément de rémunération exonéré",
-        "Participation aux bénéfices de l'entreprise",
-        "Placement sur des supports variés",
-        "Disponibilité après 5 ans"
-      ]
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -34,100 +13,120 @@ const Participation = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-              La Participation
+              La prime de Participation
             </h1>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              La participation permet aux salariés de bénéficier des résultats de leur entreprise
-              tout en offrant des avantages fiscaux et sociaux significatifs.
-            </p>
           </div>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto space-y-16">
-          {/* Qu'est-ce que la participation */}
+          {/* Introduction et historique */}
           <section>
             <Card>
-              <CardHeader>
-                <CardTitle className="text-blue-900 text-2xl">
-                  Qu'est-ce que la participation ?
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700 leading-relaxed">
-                  La participation est un dispositif obligatoire pour les entreprises de plus de 50 salariés
-                  qui permet de redistribuer une partie des bénéfices aux salariés. Elle constitue un
-                  complément de rémunération exonéré de charges sociales et d'impôt sur le revenu.
-                </p>
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <h3 className="font-bold text-blue-900 mb-2">Calcul de la participation :</h3>
-                  <p className="text-gray-700">
-                    La participation est calculée selon une formule légale basée sur les bénéfices nets,
-                    les capitaux propres, la masse salariale et la valeur ajoutée de l'entreprise.
+              <CardContent className="space-y-6 p-8">
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    Mise en place par le Général de Gaulle à la sortie de la Seconde Guerre Mondiale, la participation a pour vocation de permettre aux salariés de toucher une partie des bénéfices réalisés par l'entreprise sous la forme de primes.
+                  </p>
+
+                  <p>
+                    Ce dispositif est obligatoire dans les entreprises qui dépassent le seuil de 50 salariés durant une période de 5 années consécutives. Elle est optionnelle pour les entreprises de 1 à 49 salariés.
+                  </p>
+
+                  <p>
+                    C'est un accord collectif entre la direction et les salariés. Tous les travailleurs de l'entreprise en bénéficient (sauf pour les employés de moins de trois mois si souhaité).
+                  </p>
+
+                  <p>
+                    Dans les entreprises de moins de 11 salariés, elle peut être mise en place de façon unilatérale par l'employeur.
+                  </p>
+
+                  <p>
+                    Elle est calculée en fonction des bénéfices de l'entreprise.
                   </p>
                 </div>
               </CardContent>
             </Card>
           </section>
 
-          {/* Avantages */}
+          {/* Plafonds */}
           <section>
-            <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
-              Les avantages de la participation
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {avantages.map((avantage, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="text-blue-900">{avantage.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {avantage.items.map((item, idx) => (
-                        <li key={idx} className="text-gray-700 flex items-start">
-                          <span className="text-green-500 mr-2">•</span>
-                          {item}
-                        </li>
-                      ))}
+            <Card className="bg-blue-50">
+              <CardContent className="space-y-6 p-8">
+                <h2 className="text-2xl font-bold text-blue-900 mb-4">Plafonds de versement</h2>
+
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    Il y a deux plafonds à prendre en compte pour le versement de la Participation:
+                  </p>
+
+                  <div>
+                    <p className="font-semibold text-blue-900">Un plafond individuel équivalent au 3/4 du PASS* (30 852 € pour 2021).</p>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-blue-900 mb-2">Un plafond collectif choisit entre les formules suivantes:</p>
+                    <ul className="ml-6 space-y-1">
+                      <li>50% du résultat net comptable</li>
+                      <li>50% du résultat net fiscal</li>
+                      <li>50% du résultat net comptable - 5% des capitaux propres</li>
+                      <li>50% du résultat net fiscal - 5% des capitaux propres</li>
+                      <li>[½(Bénéfices – 5 % Capitaux propres)] x [Total des salaires versés par l'entreprise/Valeur ajoutée]</li>
                     </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </section>
 
-          {/* Gestion des fonds */}
+          {/* Avantages fiscaux */}
           <section>
-            <Card className="bg-green-50">
-              <CardHeader>
-                <CardTitle className="text-blue-900 text-2xl">
-                  Gestion et placement des fonds
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700">
-                  Les sommes issues de la participation peuvent être :
+            <Card>
+              <CardContent className="space-y-6 p-8">
+                <h2 className="text-2xl font-bold text-blue-900 mb-4">Avantages fiscaux</h2>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Elle offre un bouquet d'avantages fiscaux :
                 </p>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div className="bg-white p-4 rounded-lg">
-                    <h4 className="font-bold text-blue-900 mb-2">PEE/PERECO</h4>
-                    <p className="text-gray-700 text-sm">
-                      Placement sur un plan d'épargne entreprise avec possibilité d'abondement
-                    </p>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h3 className="font-bold text-blue-900 mb-4">Pour l'entreprise :</h3>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>Déductibilité de l'assiette de calcul de l'impôt sur les sociétés si bloquée sur un PEE/PERECO.</li>
+                      <li>Exonération de charges patronales.</li>
+                      <li>Exonération de forfait social pour les entreprises de moins de 50 salariés.</li>
+                      <li>Réduction du forfait social dans certains cas spécifiques pour les entreprises de plus de 50 salariés.</li>
+                    </ul>
                   </div>
-                  <div className="bg-white p-4 rounded-lg">
-                    <h4 className="font-bold text-blue-900 mb-2">Compte courant bloqué</h4>
-                    <p className="text-gray-700 text-sm">
-                      Placement rémunéré, disponible après 5 ans ou en cas de déblocage anticipé
-                    </p>
+
+                  <div className="bg-orange-50 p-6 rounded-lg">
+                    <h3 className="font-bold text-blue-900 mb-4">Pour le salarié :</h3>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>Exonération de charges sociales (hors CSG-CRDS soit 9,7% des revenus d'activité).</li>
+                      <li>Exonération d'IRPP si affectée à un PEE/PERECO également.</li>
+                    </ul>
                   </div>
-                  <div className="bg-white p-4 rounded-lg">
-                    <h4 className="font-bold text-blue-900 mb-2">Versement immédiat</h4>
-                    <p className="text-gray-700 text-sm">
-                      Perception directe avec taxation selon le régime des salaires
-                    </p>
-                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          {/* Qu'est-ce que le PASS */}
+          <section>
+            <Card className="bg-yellow-50">
+              <CardContent className="space-y-6 p-8">
+                <h2 className="text-2xl font-bold text-blue-900 mb-4">Qu'est-ce que le PASS ?</h2>
+
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    Le PASS pour Plafond Annuel de la Sécurité Sociale est un montant de référence (barème) pris en compte pour le calcul du montant maximal de certaines prestations sociales. (source: Ameli.fr)
+                  </p>
+
+                  <p>
+                    En 2021, il s'élevait à 41 136 €.
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -138,11 +137,10 @@ const Participation = () => {
             <Card>
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold text-blue-900 mb-4">
-                  Mettre en place un accord de participation
+                  La prime de participation répond à vos attentes ?
                 </h2>
-                <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                  AGAVIC vous accompagne dans la négociation et la mise en place d'un accord de participation
-                  adapté à votre entreprise et à vos salariés.
+                <p className="text-gray-700 mb-6">
+                  N'hésitez pas à prendre contact avec nous !
                 </p>
                 <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"

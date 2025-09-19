@@ -6,29 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const Interessement = () => {
   const navigate = useNavigate();
 
-  const criteres = [
-    {
-      title: "Résultats financiers",
-      description: "Progression du chiffre d'affaires, du bénéfice net, de la marge brute",
-      icon: "📈"
-    },
-    {
-      title: "Productivité",
-      description: "Amélioration de la productivité, réduction des coûts, optimisation des process",
-      icon: "⚡"
-    },
-    {
-      title: "Qualité",
-      description: "Réduction des défauts, amélioration de la satisfaction client, certifications",
-      icon: "🎯"
-    },
-    {
-      title: "Objectifs spécifiques",
-      description: "Critères personnalisés selon l'activité et les objectifs de l'entreprise",
-      icon: "🎪"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -36,155 +13,91 @@ const Interessement = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-              L'Intéressement
+              La prime d'intéressement
             </h1>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              L'intéressement permet d'associer les salariés aux performances de l'entreprise
-              en fonction d'objectifs définis et mesurables.
-            </p>
           </div>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto space-y-16">
-          {/* Définition */}
+          {/* Introduction et historique */}
           <section>
             <Card>
-              <CardHeader>
-                <CardTitle className="text-blue-900 text-2xl">
-                  Qu'est-ce que l'intéressement ?
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-700 leading-relaxed">
-                  L'intéressement est un dispositif facultatif qui permet de verser aux salariés une prime
-                  liée aux résultats ou aux performances de l'entreprise. Contrairement à la participation,
-                  l'intéressement peut être mis en place dans toutes les entreprises, quelle que soit leur taille.
-                </p>
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <h3 className="font-bold text-blue-900 mb-2">Flexibilité et adaptation :</h3>
-                  <p className="text-gray-700">
-                    L'accord d'intéressement peut être adapté aux spécificités de chaque entreprise
-                    avec des critères de performance personnalisés et des modalités de calcul flexibles.
+              <CardContent className="space-y-6 p-8">
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    Apparue en France en 1959, ses modalités ont évolué avec la législation pour bénéficier aujourd'hui, d'un cadre fiscal avantageux.
+                  </p>
+
+                  <p>
+                    C'est un dispositif facultatif d'association à la performance. Il permet de verser des primes de façon collective en fonction d'objectifs définis lors de la mise en place de l'accord d'intéressement.
+                  </p>
+
+                  <p>
+                    Lors de la rédaction de l'accord, les dirigeants et les représentants du personnel doivent déterminer ensemble les objectifs de déblocage de la prime.
+                  </p>
+
+                  <p>
+                    Ces objectifs peuvent être d'ordre financier ou extra-financier.
                   </p>
                 </div>
               </CardContent>
             </Card>
           </section>
 
-          {/* Critères de performance */}
+          {/* Exemples d'objectifs */}
           <section>
-            <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
-              Critères de performance possibles
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {criteres.map((critere, index) => (
-                <Card key={index} className="text-center">
-                  <CardContent className="p-6">
-                    <div className="text-4xl mb-4">{critere.icon}</div>
-                    <h3 className="font-bold text-blue-900 mb-3">{critere.title}</h3>
-                    <p className="text-gray-700 text-sm leading-relaxed">{critere.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <Card className="bg-blue-50">
+              <CardContent className="space-y-6 p-8">
+                <h2 className="text-2xl font-bold text-blue-900 mb-4">Voici des exemples d'objectifs à atteindre :</h2>
+
+                <ul className="space-y-2 text-gray-700 ml-6">
+                  <li>Augmentation du chiffre d'affaire de 10% sur l'année.</li>
+                  <li>Augmentation du volume de vente.</li>
+                  <li>20% de nouveaux clients au cours de l'année.</li>
+                  <li>Baisse de l'empreinte carbone de l'entreprise.</li>
+                  <li>Le taux de défaut des pièces produites inférieur à 1 pour 10000.</li>
+                </ul>
+              </CardContent>
+            </Card>
           </section>
 
-          {/* Avantages */}
+          {/* Avantages fiscaux */}
           <section>
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-blue-50">
-                <CardHeader>
-                  <CardTitle className="text-blue-900">Avantages pour l'entreprise</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Motivation et implication des salariés
-                    </li>
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Amélioration des performances
-                    </li>
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Exonération de charges sociales (dans la limite de 20% du PASS)
-                    </li>
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Déductibilité fiscale des sommes versées
-                    </li>
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Flexibilité dans la définition des critères
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+            <Card>
+              <CardContent className="space-y-6 p-8">
+                <h2 className="text-2xl font-bold text-blue-900 mb-4">Elle offre de nombreux avantages fiscaux:</h2>
 
-              <Card className="bg-green-50">
-                <CardHeader>
-                  <CardTitle className="text-blue-900">Avantages pour les salariés</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Prime liée aux performances collectives
-                    </li>
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Exonération d'impôt sur le revenu (si placé)
-                    </li>
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Versement immédiat possible
-                    </li>
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Possibilité de placement sur PEE/PERECO
-                    </li>
-                    <li className="text-gray-700 flex items-start">
-                      <span className="text-green-500 mr-2">•</span>
-                      Reconnaissance de l'effort collectif
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h3 className="font-bold text-blue-900 mb-4">Pour l'entreprise :</h3>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>Déduction du bénéfice imposable de l'entreprise</li>
+                      <li>Exonération des charges patronales</li>
+                      <li>Exonération de 20% de forfait social pour les entreprises de moins de 250 salariés.</li>
+                    </ul>
+                  </div>
 
-          {/* Modalités */}
-          <section>
-            <Card className="bg-yellow-50">
-              <CardHeader>
-                <CardTitle className="text-blue-900 text-2xl">
-                  Modalités de mise en place
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div>
-                    <h4 className="font-bold text-blue-900 mb-2">1. Négociation</h4>
-                    <p className="text-gray-700 text-sm">
-                      Définition des critères de performance et des modalités de calcul avec les représentants du personnel
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-blue-900 mb-2">2. Accord</h4>
-                    <p className="text-gray-700 text-sm">
-                      Signature de l'accord d'intéressement pour une durée de 3 ans renouvelable
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-blue-900 mb-2">3. Suivi</h4>
-                    <p className="text-gray-700 text-sm">
-                      Mesure des performances et calcul des primes selon les critères définis
-                    </p>
+                  <div className="bg-orange-50 p-6 rounded-lg">
+                    <h3 className="font-bold text-blue-900 mb-4">Pour les bénéficiaires :</h3>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>Exonération des charges sociales (hors 9,7% CSG-CRDS)</li>
+                      <li>Déduction de l'Impôt sur le revenu des personnes physiques si la prime est versée sur un PEE/PERECO.</li>
+                    </ul>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          {/* Message de motivation */}
+          <section>
+            <Card className="bg-yellow-50">
+              <CardContent className="space-y-6 p-8">
+                <p className="text-xl font-semibold text-blue-900 text-center">
+                  C'est un outil qui vous permettra de motiver, fidéliser et fédérer vos employés !
+                </p>
               </CardContent>
             </Card>
           </section>
@@ -194,11 +107,10 @@ const Interessement = () => {
             <Card>
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold text-blue-900 mb-4">
-                  Mettre en place un accord d'intéressement
+                  L'un de ces dispositifs vous intéresse ?
                 </h2>
-                <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                  AGAVIC vous accompagne dans la conception et la mise en place d'un accord d'intéressement
-                  adapté à votre entreprise et à vos objectifs de performance.
+                <p className="text-gray-700 mb-6">
+                  Contactez-nous ! AGAVIC répond à vos questions concernant l'épargne salariale
                 </p>
                 <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
