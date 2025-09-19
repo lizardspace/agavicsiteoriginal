@@ -13,60 +13,40 @@ const Actualite = () => {
       title: "Achat immobilier : pouvez-vous changer d'assurance emprunteur ?",
       date: "13 nov. 2023",
       readingTime: "3 min de lecture",
-      imageUrl: "/assets/images/blog/image-emprunteur.jpg",
-      link: "/blog/achat-immobilier-changer-assurance-emprunteur",
-      excerpt: "Découvrez vos droits et les démarches pour changer d'assurance emprunteur lors de votre achat immobilier.",
-      category: "Immobilier"
+      excerpt: "Quand vous souscrivez un prêt immobilier, l'assurance emprunteur n'est pas obligatoire, mais l'établissement prêteur peut l'exiger, afin...",
+      category: "Immobilier",
+      comments: 0,
+      likes: 0
     },
     {
       id: 2,
       title: "Tout savoir sur les complémentaires santé",
       date: "31 oct. 2023",
       readingTime: "5 min de lecture",
-      imageUrl: "/assets/images/blog/image-complementaire-sante.jpg",
-      link: "/blog/complementaire-sante",
-      excerpt: "Guide complet sur les complémentaires santé : comment choisir, comparer et optimiser vos remboursements.",
-      category: "Santé"
+      excerpt: "Achat de lunettes de vue, pose de prothèses dentaires ou auditives, consommation de certains médicaments...De nombreuses dépenses de...",
+      category: "Santé",
+      comments: 0,
+      likes: 0
     },
     {
       id: 3,
       title: "Les avantages du PER",
       date: "16 juil. 2021",
       readingTime: "2 min de lecture",
-      imageUrl: "/assets/images/blog/image-per.jpg",
-      link: "/blog/les-avantages-du-per",
-      excerpt: "Découvrez tous les avantages fiscaux et pratiques du Plan d'Épargne Retraite pour préparer votre avenir.",
-      category: "Retraite"
+      excerpt: "Le Plan d'Epargne Retraite – PER, instauré par la loi PACTE en 2019 est un nouveau contrat de placement qui propose de nombreux avantages...",
+      category: "Retraite",
+      comments: 0,
+      likes: 1
     },
     {
       id: 4,
-      title: "Épargne salariale : optimisez vos dispositifs d'entreprise",
-      date: "5 sept. 2023",
-      readingTime: "4 min de lecture",
-      imageUrl: "/assets/images/blog/image-epargne-salariale.jpg",
-      link: "/blog/epargne-salariale-optimisation",
-      excerpt: "Comment mettre en place et optimiser les dispositifs d'épargne salariale dans votre entreprise.",
-      category: "Épargne salariale"
-    },
-    {
-      id: 5,
-      title: "Gestion de patrimoine : les erreurs à éviter",
-      date: "22 août 2023",
-      readingTime: "6 min de lecture",
-      imageUrl: "/assets/images/blog/image-patrimoine.jpg",
-      link: "/blog/gestion-patrimoine-erreurs",
-      excerpt: "Les principales erreurs en gestion de patrimoine et comment les éviter pour optimiser vos investissements.",
-      category: "Patrimoine"
-    },
-    {
-      id: 6,
-      title: "Prévoyance professionnelle : protégez votre activité",
-      date: "10 juin 2023",
-      readingTime: "4 min de lecture",
-      imageUrl: "/assets/images/blog/image-prevoyance.jpg",
-      link: "/blog/prevoyance-professionnelle",
-      excerpt: "L'importance de la prévoyance pour les professionnels et les solutions adaptées à chaque situation.",
-      category: "Prévoyance"
+      title: "Le PER, un cadeau pour les enfants !",
+      date: "17 juin 2021",
+      readingTime: "2 min de lecture",
+      excerpt: "Article de monsieur Rolland NINO Le Blog de la rémunération du dirigeant 8 mars 2020 Pour cadeau de naissance, il est d'usage assez...",
+      category: "Retraite",
+      comments: 0,
+      likes: 0
     }
   ];
 
@@ -136,10 +116,28 @@ const Actualite = () => {
                     {post.excerpt}
                   </p>
 
+                  <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
+                    <span>{post.comments} commentaire{post.comments !== 1 ? 's' : ''}</span>
+                    {post.likes > 0 && (
+                      <span>{post.likes} j'aime</span>
+                    )}
+                  </div>
+
                   <Button
                     variant="outline"
                     size="sm"
                     className="text-blue-600 border-blue-600 hover:bg-blue-50 w-full"
+                    onClick={() => {
+                      if (post.id === 1) {
+                        navigate('/blog/assurance-emprunteur');
+                      } else if (post.id === 2) {
+                        navigate('/blog/complementaires-sante');
+                      } else if (post.id === 3) {
+                        navigate('/blog/avantages-per');
+                      } else if (post.id === 4) {
+                        navigate('/blog/per-enfants');
+                      }
+                    }}
                   >
                     Lire la suite
                   </Button>

@@ -13,6 +13,10 @@ import PeePereco from './pages/PeePereco';
 import Participation from './pages/Participation';
 import Interessement from './pages/Interessement';
 import Actualite from './pages/Actualite';
+import BlogPost from './pages/BlogPost';
+import BlogPostSante from './pages/BlogPostSante';
+import BlogPostPER from './pages/BlogPostPER';
+import BlogPostPEREnfants from './pages/BlogPostPEREnfants';
 import Contact from './pages/Contact';
 import Plus from './pages/Plus';
 
@@ -32,6 +36,10 @@ function App() {
           <Route path="/participation" element={<Participation />} />
           <Route path="/interessement" element={<Interessement />} />
           <Route path="/actualite" element={<Actualite />} />
+          <Route path="/blog/assurance-emprunteur" element={<BlogPost />} />
+          <Route path="/blog/complementaires-sante" element={<BlogPostSante />} />
+          <Route path="/blog/avantages-per" element={<BlogPostPER />} />
+          <Route path="/blog/per-enfants" element={<BlogPostPEREnfants />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/plus" element={<Plus />} />
         </Routes>
