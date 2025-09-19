@@ -39,10 +39,74 @@ const Footer = () => {
           </div>
 
           {/* Footer Content */}
-          <div className="text-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 AGAVIC ASSURANCES. Tous droits réservés.
-            </p>
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            {/* Logo and Company Info */}
+            <div className="text-center md:text-left">
+              <div className="mb-4">
+                <span className="text-2xl font-bold text-blue-400">AGAVIC ASSURANCES</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Votre partenaire de confiance en assurance et gestion de patrimoine
+              </p>
+            </div>
+
+            {/* Legal Links */}
+            <div className="text-center">
+              <h3 className="text-white font-semibold mb-4">Informations légales</h3>
+              <div className="space-y-2">
+                <div>
+                  <a href="/mentions-legales" className="text-gray-400 hover:text-white text-sm transition-colors">
+                    Mentions légales
+                  </a>
+                </div>
+                <div>
+                  <a href="/politique-cookies" className="text-gray-400 hover:text-white text-sm transition-colors">
+                    Politique en matière de cookies
+                  </a>
+                </div>
+                <div>
+                  <a href="/politique-confidentialite" className="text-gray-400 hover:text-white text-sm transition-colors">
+                    Politique de confidentialité
+                  </a>
+                </div>
+                <div>
+                  <a href="/conditions-generales" className="text-gray-400 hover:text-white text-sm transition-colors">
+                    Conditions générales d'utilisation
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="text-center md:text-right">
+              <h3 className="text-white font-semibold mb-4">Contact</h3>
+              <div className="space-y-2 text-sm text-gray-400">
+                <p>67 route de Paris</p>
+                <p>Tassin-La-Demi-Lune, 69160</p>
+                <p>
+                  <a href="mailto:contact@agavic.fr" className="hover:text-white transition-colors">
+                    contact@agavic.fr
+                  </a>
+                </p>
+                <p>
+                  <a href="tel:0478347309" className="hover:text-white transition-colors">
+                    04 78 34 73 09
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-gray-700 pt-6 text-center">
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <p className="text-gray-400 text-sm mb-4 md:mb-0">
+                © 2025 par AGAVIC. Tous droits réservés.
+              </p>
+              <div className="flex items-center space-x-4">
+                <span className="text-blue-400 font-semibold text-sm">Logo AGAVIC ASSURANCES Logo</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
