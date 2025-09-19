@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import agavicLogo from '../assets/images/agavicassurances.avif';
 
 const Footer = () => {
   return (
@@ -43,7 +44,12 @@ const Footer = () => {
             {/* Logo and Company Info */}
             <div className="text-center md:text-left">
               <div className="mb-4">
-                <span className="text-2xl font-bold text-blue-400">AGAVIC ASSURANCES</span>
+                <img
+                  src={agavicLogo}
+                  alt="AGAVIC ASSURANCES"
+                  className="h-12 md:h-16 mx-auto md:mx-0 mb-2"
+                />
+                <span className="text-2xl font-bold text-blue-400 block">AGAVIC ASSURANCES</span>
               </div>
               <p className="text-gray-400 text-sm">
                 Votre partenaire de confiance en assurance et gestion de patrimoine
@@ -104,7 +110,11 @@ const Footer = () => {
                 © 2025 par AGAVIC. Tous droits réservés.
               </p>
               <div className="flex items-center space-x-4">
-                <span className="text-blue-400 font-semibold text-sm">Logo AGAVIC ASSURANCES Logo</span>
+                <img
+                  src={agavicLogo}
+                  alt="AGAVIC ASSURANCES Logo"
+                  className="h-8"
+                />
               </div>
             </div>
           </div>

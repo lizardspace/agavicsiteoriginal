@@ -19,6 +19,7 @@ import BlogPostPER from './pages/BlogPostPER';
 import BlogPostPEREnfants from './pages/BlogPostPEREnfants';
 import Contact from './pages/Contact';
 import Plus from './pages/Plus';
+import MentionsLegales from './pages/MentionsLegales';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/blog/per-enfants" element={<BlogPostPEREnfants />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/plus" element={<Plus />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
         </Routes>
       </main>
       <Footer />
