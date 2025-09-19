@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Actualite = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -16,7 +18,8 @@ const Actualite = () => {
       excerpt: "Quand vous souscrivez un prêt immobilier, l'assurance emprunteur n'est pas obligatoire, mais l'établissement prêteur peut l'exiger, afin...",
       category: "Immobilier",
       comments: 0,
-      likes: 0
+      likes: 0,
+      link: "/blog/assurance-emprunteur"
     },
     {
       id: 2,
@@ -26,7 +29,8 @@ const Actualite = () => {
       excerpt: "Achat de lunettes de vue, pose de prothèses dentaires ou auditives, consommation de certains médicaments...De nombreuses dépenses de...",
       category: "Santé",
       comments: 0,
-      likes: 0
+      likes: 0,
+      link: "/blog/complementaires-sante"
     },
     {
       id: 3,
@@ -36,7 +40,8 @@ const Actualite = () => {
       excerpt: "Le Plan d'Epargne Retraite – PER, instauré par la loi PACTE en 2019 est un nouveau contrat de placement qui propose de nombreux avantages...",
       category: "Retraite",
       comments: 0,
-      likes: 1
+      likes: 1,
+      link: "/blog/avantages-per"
     },
     {
       id: 4,
@@ -46,7 +51,8 @@ const Actualite = () => {
       excerpt: "Article de monsieur Rolland NINO Le Blog de la rémunération du dirigeant 8 mars 2020 Pour cadeau de naissance, il est d'usage assez...",
       category: "Retraite",
       comments: 0,
-      likes: 0
+      likes: 0,
+      link: "/blog/per-enfants"
     }
   ];
 
@@ -90,7 +96,15 @@ const Actualite = () => {
           {/* Articles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {filteredPosts.map((post) => (
-              <Card key={post.id} className="h-full hover:shadow-lg transition-all duration-300 cursor-pointer group">
+              <Card
+                key={post.id}
+                className="h-full hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                onClick={() => {
+                  if (post.link) {
+                    navigate(post.link);
+                  }
+                }}
+              >
                 <div className="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden">
                   <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     <span className="text-white text-lg font-semibold">AGAVIC</span>
@@ -128,14 +142,10 @@ const Actualite = () => {
                     size="sm"
                     className="text-blue-600 border-blue-600 hover:bg-blue-50 w-full"
                     onClick={() => {
-                      if (post.id === 1) {
-                        navigate('/blog/assurance-emprunteur');
-                      } else if (post.id === 2) {
-                        navigate('/blog/complementaires-sante');
-                      } else if (post.id === 3) {
-                        navigate('/blog/avantages-per');
-                      } else if (post.id === 4) {
-                        navigate('/blog/per-enfants');
+                      if (post.link) {
+                        navigate(post.link);
+                      } else {
+                        console.log('No link defined for post:', post.title);
                       }
                     }}
                   >
@@ -170,22 +180,36 @@ const Actualite = () => {
 
           {/* Newsletter */}
           <section className="mt-20">
-            <Card className="bg-blue-900 text-white">
+            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-bold mb-4">Newsletter AGAVIC</h2>
-                <p className="mb-6 max-w-2xl mx-auto">
-                  Restez informé de nos dernières actualités et conseils en gestion de patrimoine.
-                  Inscrivez-vous à notre newsletter "Les Petites nouvelles".
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                  <input
-                    type="email"
-                    placeholder="Votre adresse email"
-                    className="flex-1 px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  />
-                  <Button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-semibold px-6 py-2">
-                    S'abonner
-                  </Button>
+                <div className="max-w-3xl mx-auto">
+                  <h2 className="text-2xl font-bold text-blue-900 mb-2">Les petites nouvelles AGAVIC</h2>
+                  <p className="text-blue-800 mb-6">
+                    Abonnez-vous à notre newsletter mensuel AGAVIC "Les petites nouvelles" pour rester informé de l'actualité retraite et économique !
+                  </p>
+
+                  <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-200 max-w-md mx-auto">
+                    <div className="flex flex-col gap-4">
+                      <div className="text-left">
+                        <label htmlFor="newsletter-email" className="block text-sm font-medium text-gray-700 mb-2">
+                          E-mail
+                        </label>
+                        <input
+                          id="newsletter-email"
+                          type="email"
+                          placeholder="Votre adresse email"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        />
+                      </div>
+                      <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 w-full">
+                        S'abonner
+                      </Button>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-gray-600 mt-4">
+                    Votre abonnement a bien été pris en compte !
+                  </p>
                 </div>
               </CardContent>
             </Card>
