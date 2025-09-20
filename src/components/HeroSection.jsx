@@ -78,7 +78,7 @@ const HeroSection = () => {
                 style={{ backgroundImage: `url(${slide.image})` }}
               >
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-black/60 backdrop-blur-[1px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-black/60"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
 
                 {/* Content */}
@@ -97,8 +97,8 @@ const HeroSection = () => {
           ))}
         </CarouselContent>
 
-        <CarouselPrevious className="left-8 text-white hover:text-yellow-400 transition-all duration-300 z-20 p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-110 shadow-2xl size-16" />
-        <CarouselNext className="right-8 text-white hover:text-yellow-400 transition-all duration-300 z-20 p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-110 shadow-2xl size-16" />
+        <CarouselPrevious className="hidden md:flex left-8 text-white hover:text-yellow-400 transition-all duration-300 z-20 p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-110 shadow-2xl size-16" />
+        <CarouselNext className="hidden md:flex right-8 text-white hover:text-yellow-400 transition-all duration-300 z-20 p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-110 shadow-2xl size-16" />
       </Carousel>
 
       {/* Indicateurs de points */}
