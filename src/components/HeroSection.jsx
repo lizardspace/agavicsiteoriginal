@@ -83,11 +83,11 @@ const HeroSection = () => {
 
                 {/* Content */}
                 <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-4">
-                  <div className="max-w-4xl backdrop-blur-sm bg-white/5 p-8 rounded-2xl border border-white/10 shadow-2xl">
-                    <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-wide bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">
+                  <div className="max-w-4xl">
+                    <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-wide bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-serif">
                       {slide.title}
                     </h1>
-                    <p className="text-xl md:text-2xl font-light italic leading-relaxed text-blue-100 drop-shadow-lg">
+                    <p className="text-xl md:text-2xl font-light italic leading-relaxed text-blue-100 drop-shadow-lg font-serif">
                       {slide.subtitle}
                     </p>
                   </div>
