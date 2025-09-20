@@ -84,10 +84,10 @@ const HeroSection = () => {
                 {/* Content */}
                 <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-4">
                   <div className="max-w-4xl">
-                    <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-wide bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-serif">
+                    <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-wide bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl" style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', 'Times New Roman', serif" }}>
                       {slide.title}
                     </h1>
-                    <p className="text-xl md:text-2xl font-light italic leading-relaxed text-blue-100 drop-shadow-lg font-serif">
+                    <p className="text-xl md:text-2xl font-light italic leading-relaxed text-blue-100 drop-shadow-lg" style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', 'Times New Roman', serif" }}>
                       {slide.subtitle}
                     </p>
                   </div>
